@@ -11,6 +11,6 @@ class ControllerTest extends TestCase
 
     public function testRender()
     {
-        $this->assertIsBool(true, "This is not true cause of");
+        $this->assertIsBool(2, "This is not true cause of");
     }
 }
