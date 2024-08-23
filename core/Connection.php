@@ -29,16 +29,16 @@ class Connection
     /**
      * Get database connection.
      * 
-     * @return \PDO
+     * @return \PDO | null
      */
-    public function getConnection(): \PDO
+    public function getConnection(): ?\PDO
     {
         if (!$this->connection) {
             try {
                 $this->connection = new \PDO(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
                 $this->connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             } catch (\PDOException $exc) {
-                echo 'Connection failed.';
+                return null;
             }
         }
 
